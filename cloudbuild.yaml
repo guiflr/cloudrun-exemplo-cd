@@ -2,7 +2,9 @@ steps:
 
   # Install 
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', 'gcr.io/valued-plane-326215/django-cloudrun:$SHORT_SHA', '-f','Dockerfile.prod','.']
+    args: ['build', '-t', 'gcr.io/valued-plane-326215/django-cloudrun:$SHORT_SHA', '-f','Dockerfile.prod','.']  
+  options:
+    logging: CLOUD_LOGGING_ONLY
 
   # Running container
   - name: 'docker'
